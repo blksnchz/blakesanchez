@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1d1d1b;
+  --paper: #f4f2ec;
+  --red: #c8472b;
+  --line: #d9d5cb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), Georgia, serif;
+}
+
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+
+.login-shell { min-height: 100vh; display: grid; grid-template-columns: minmax(340px, 0.95fr) 1.05fr; }
+.brand-panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px clamp(32px, 6vw, 88px);
+  min-height: 100vh;
+  color: #f7f4eb;
+  background-color: #242822;
+  background-image: linear-gradient(rgba(36,40,34,.78), rgba(36,40,34,.88)), url("https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=85");
+  background-position: center;
+  background-size: cover;
+}
+.brand-mark, .notes-logo span { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid currentColor; font-family: Georgia, serif; font-size: 24px; }
+.brand-kicker, .eyebrow { font-family: var(--font-geist-mono), monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+.brand-panel h1 { margin: 16px 0; font-family: Georgia, serif; font-size: clamp(52px, 6vw, 86px); font-weight: 400; line-height: .92; }
+.brand-copy { max-width: 420px; font-family: Georgia, serif; font-size: 19px; line-height: 1.55; opacity: .82; }
+.brand-footer { font-family: var(--font-geist-mono), monospace; font-size: 10px; letter-spacing: .14em; opacity: .64; }
+.login-panel { display: grid; place-items: center; padding: 40px; background-image: linear-gradient(rgba(244,242,236,.94), rgba(244,242,236,.94)), repeating-linear-gradient(0deg, transparent 0 31px, rgba(29,29,27,.05) 31px 32px); }
+.login-card { width: min(100%, 430px); }
+.login-card .eyebrow { color: var(--red); }
+.login-card h2 { margin: 10px 0 8px; font-family: Georgia, serif; font-size: 48px; font-weight: 400; }
+.form-intro { margin: 0 0 40px; color: #68665f; }
+.login-card label { display: block; margin: 22px 0 8px; font-family: var(--font-geist-mono), monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.login-card input { width: 100%; height: 52px; border: 0; border-bottom: 1px solid #9e9a91; border-radius: 0; padding: 0 2px; background: transparent; outline: none; }
+.login-card input:focus { border-bottom-color: var(--red); box-shadow: 0 1px var(--red); }
+.login-card input::placeholder { color: #aaa79f; }
+.login-button { width: 100%; height: 54px; margin-top: 36px; border: 0; background: var(--ink); color: white; font-family: var(--font-geist-mono), monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, transform .2s; }
+.login-button:hover { background: var(--red); transform: translateY(-2px); }
+.login-error { min-height: 22px; margin: 12px 0 0; color: var(--red); font-size: 14px; }
+.validation-note { margin-top: 10px; color: #98958d; font-size: 12px; }
+
+.notes-shell { min-height: 100vh; background: var(--paper); }
+.notes-header { height: 82px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(24px, 6vw, 80px); border-bottom: 1px solid var(--line); }
+.notes-logo { display: flex; align-items: center; gap: 14px; font-family: Georgia, serif; font-size: 24px; }
+.notes-logo span { width: 36px; height: 36px; font-size: 20px; }
+.logout-button { border: 0; border-bottom: 1px solid var(--ink); padding: 8px 0; background: transparent; font-family: var(--font-geist-mono), monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.notes-content { width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 64px 0 80px; }
+.notes-heading { display: flex; align-items: end; justify-content: space-between; }
+.notes-heading .eyebrow { color: var(--red); }
+.notes-heading h1 { margin: 6px 0 0; font-family: Georgia, serif; font-size: 64px; font-weight: 400; }
+.notes-heading > p { color: #858179; font-family: var(--font-geist-mono), monospace; font-size: 11px; text-transform: uppercase; }
+.note-composer { display: grid; grid-template-columns: 1fr 2fr auto; gap: 16px; align-items: end; margin: 44px 0 48px; padding: 24px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+.note-composer input, .note-composer textarea { width: 100%; border: 0; border-bottom: 1px solid var(--line); padding: 14px 10px; background: transparent; outline: none; resize: vertical; }
+.note-composer textarea { min-height: 48px; }
+.note-composer input:focus, .note-composer textarea:focus { border-bottom-color: var(--red); }
+.note-composer button { height: 48px; border: 0; padding: 0 24px; background: var(--red); color: white; font-family: var(--font-geist-mono), monospace; font-size: 11px; text-transform: uppercase; }
+.notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.note-card { min-height: 230px; position: relative; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px; }
+.note-index { color: #aaa69d; font-family: var(--font-geist-mono), monospace; font-size: 10px; }
+.note-card h2 { margin: 28px 0 12px; font-family: Georgia, serif; font-size: 27px; font-weight: 400; }
+.note-card > p { color: #66645e; line-height: 1.6; white-space: pre-wrap; }
+.delete-button { position: absolute; right: 20px; bottom: 16px; border: 0; background: transparent; color: #99958c; font-family: var(--font-geist-mono), monospace; font-size: 10px; text-transform: uppercase; }
+.delete-button:hover { color: var(--red); }
+.empty-state { margin-top: 72px; text-align: center; color: #858179; }
+.empty-state p { margin-bottom: 8px; font-family: Georgia, serif; font-size: 28px; color: var(--ink); }
+.empty-state span { font-size: 14px; }
+
+@media (max-width: 800px) {
+  .login-shell { grid-template-columns: 1fr; }
+  .brand-panel { min-height: 42vh; padding: 28px 24px; }
+  .brand-panel h1 { font-size: 48px; }
+  .brand-copy, .brand-footer { display: none; }
+  .login-panel { min-height: 58vh; padding: 48px 24px; }
+  .login-card h2 { font-size: 40px; }
+  .note-composer { grid-template-columns: 1fr; }
+  .notes-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 520px) {
+  .notes-content { width: calc(100% - 32px); }
+  .notes-heading h1 { font-size: 52px; }
+  .notes-grid { grid-template-columns: 1fr; }
+}
